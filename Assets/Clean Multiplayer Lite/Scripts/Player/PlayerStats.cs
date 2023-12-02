@@ -11,12 +11,8 @@ namespace AvocadoShark
     {
         [Networked(OnChanged = nameof(UpdatePlayerName))] public NetworkString<_32> PlayerName { get; set; }
 
-
         [SerializeField] TextMeshPro playerNameLabel;
-
         public static PlayerStats instance;
-
-
 
         private void Start()
         {
@@ -27,6 +23,7 @@ namespace AvocadoShark
             }
 
         }
+
         protected static void UpdatePlayerName(Changed<PlayerStats> changed)
         {
             if (!changed.Behaviour.HasStateAuthority)
@@ -34,8 +31,6 @@ namespace AvocadoShark
             else
                 changed.Behaviour.playerNameLabel.text = "";
         }
-
-
     }
 }
 #endif

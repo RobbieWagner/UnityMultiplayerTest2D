@@ -43,34 +43,16 @@ public partial class @PlayerMovementActions: IInputActionCollection2, IDisposabl
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""NextDialogueLine"",
+                    ""name"": ""Jump"",
                     ""type"": ""Button"",
-                    ""id"": ""d9e79d7a-43fc-4f5e-b4e0-f44ddaa74866"",
+                    ""id"": ""fd6965a6-0bc9-4c9a-b91a-f896d7056a96"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ResetLevel"",
-                    ""type"": ""Button"",
-                    ""id"": ""dc3e5fc5-d10f-4f14-8ee8-925855b0bed1"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""CloseAllWindows"",
-                    ""type"": ""Button"",
-                    ""id"": ""4776d653-f521-4d04-a3ad-b3540c98445a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -164,34 +146,34 @@ public partial class @PlayerMovementActions: IInputActionCollection2, IDisposabl
                 },
                 {
                     ""name"": """",
-                    ""id"": ""09c3b447-d463-4e70-8268-dfe4d4b6f9bd"",
+                    ""id"": ""2cb25335-7405-476a-ad46-3ac10a006ae2"",
+                    ""path"": ""<NimbusGamepadHid>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7a4f4d05-d5f7-45ec-b171-f8efbf6c70b6"",
+                    ""path"": ""<NimbusGamepadHid>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""66c3b9bf-d904-44a8-a70b-d422d41dfe95"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""NextDialogueLine"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1c25888e-e39a-4109-b7f5-8b12430e7414"",
-                    ""path"": ""<Keyboard>/l"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ResetLevel"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8ad327f5-2215-4318-ac55-b848c0a5b84c"",
-                    ""path"": ""<Keyboard>/c"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CloseAllWindows"",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -204,9 +186,7 @@ public partial class @PlayerMovementActions: IInputActionCollection2, IDisposabl
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
         m_Movement_Interact = m_Movement.FindAction("Interact", throwIfNotFound: true);
-        m_Movement_NextDialogueLine = m_Movement.FindAction("NextDialogueLine", throwIfNotFound: true);
-        m_Movement_ResetLevel = m_Movement.FindAction("ResetLevel", throwIfNotFound: true);
-        m_Movement_CloseAllWindows = m_Movement.FindAction("CloseAllWindows", throwIfNotFound: true);
+        m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -270,18 +250,14 @@ public partial class @PlayerMovementActions: IInputActionCollection2, IDisposabl
     private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
     private readonly InputAction m_Movement_Move;
     private readonly InputAction m_Movement_Interact;
-    private readonly InputAction m_Movement_NextDialogueLine;
-    private readonly InputAction m_Movement_ResetLevel;
-    private readonly InputAction m_Movement_CloseAllWindows;
+    private readonly InputAction m_Movement_Jump;
     public struct MovementActions
     {
         private @PlayerMovementActions m_Wrapper;
         public MovementActions(@PlayerMovementActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Movement_Move;
         public InputAction @Interact => m_Wrapper.m_Movement_Interact;
-        public InputAction @NextDialogueLine => m_Wrapper.m_Movement_NextDialogueLine;
-        public InputAction @ResetLevel => m_Wrapper.m_Movement_ResetLevel;
-        public InputAction @CloseAllWindows => m_Wrapper.m_Movement_CloseAllWindows;
+        public InputAction @Jump => m_Wrapper.m_Movement_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -297,15 +273,9 @@ public partial class @PlayerMovementActions: IInputActionCollection2, IDisposabl
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @NextDialogueLine.started += instance.OnNextDialogueLine;
-            @NextDialogueLine.performed += instance.OnNextDialogueLine;
-            @NextDialogueLine.canceled += instance.OnNextDialogueLine;
-            @ResetLevel.started += instance.OnResetLevel;
-            @ResetLevel.performed += instance.OnResetLevel;
-            @ResetLevel.canceled += instance.OnResetLevel;
-            @CloseAllWindows.started += instance.OnCloseAllWindows;
-            @CloseAllWindows.performed += instance.OnCloseAllWindows;
-            @CloseAllWindows.canceled += instance.OnCloseAllWindows;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -316,15 +286,9 @@ public partial class @PlayerMovementActions: IInputActionCollection2, IDisposabl
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @NextDialogueLine.started -= instance.OnNextDialogueLine;
-            @NextDialogueLine.performed -= instance.OnNextDialogueLine;
-            @NextDialogueLine.canceled -= instance.OnNextDialogueLine;
-            @ResetLevel.started -= instance.OnResetLevel;
-            @ResetLevel.performed -= instance.OnResetLevel;
-            @ResetLevel.canceled -= instance.OnResetLevel;
-            @CloseAllWindows.started -= instance.OnCloseAllWindows;
-            @CloseAllWindows.performed -= instance.OnCloseAllWindows;
-            @CloseAllWindows.canceled -= instance.OnCloseAllWindows;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -346,8 +310,6 @@ public partial class @PlayerMovementActions: IInputActionCollection2, IDisposabl
     {
         void OnMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnNextDialogueLine(InputAction.CallbackContext context);
-        void OnResetLevel(InputAction.CallbackContext context);
-        void OnCloseAllWindows(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }

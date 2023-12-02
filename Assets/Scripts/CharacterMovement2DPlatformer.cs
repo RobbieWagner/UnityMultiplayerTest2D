@@ -20,13 +20,13 @@ public class CharacterMovement2DPlatformer : MonoBehaviour
 
     private Vector3 lastFramePos = Vector3.zero;
 
-    [SerializeField][Range(-1, 0)] private float wallPushback = -.08f;
-    private HashSet<Collider2D> colliders;
+    private Rigidbody2D rb2d;
+    [SerializeField] private float jumpForce;
 
     private void Awake()
     {
         inputActions = new PlayerInputActions();
-        colliders = new HashSet<Collider2D>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     private void LateUpdate() 
@@ -35,8 +35,6 @@ public class CharacterMovement2DPlatformer : MonoBehaviour
         if(canMove) 
         {
             transform.Translate(movementVector * currentWalkSpeed * Time.deltaTime);
-            foreach(Collider2D collider in colliders)
-                transform.position = Vector2.MoveTowards(transform.position, collider.transform.position, wallPushback);
         }
 
         lastFramePos = transform.position;
@@ -71,6 +69,12 @@ public class CharacterMovement2DPlatformer : MonoBehaviour
         }
     }
 
+    private void OnJump(InputValue inputValue)
+    {
+        rb2d.AddForce(Vector2.up * jumpForce);
+        Debug.Log("jump");
+    }
+
     private void OnDisable()
     {
         StopPlayer();
@@ -100,16 +104,5 @@ public class CharacterMovement2DPlatformer : MonoBehaviour
     public void StopMovementSounds()
     {
         footstepAudioSource.Stop();
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        Debug.Log("new collision");
-        colliders.Add(other.collider);
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        colliders.Remove(other.collider);
     }
 }
