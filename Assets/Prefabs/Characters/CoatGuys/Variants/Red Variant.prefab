@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1869403282372541098, guid: 6dabcd6e3cb035547a139d9ed77c79c9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -307168524, guid: bc80fad5949ae2c44875733cf90d6d10, type: 3}
     - target: {fileID: 4710429710142559811, guid: 6dabcd6e3cb035547a139d9ed77c79c9, type: 3}
       propertyPath: Flags
       value: 2305

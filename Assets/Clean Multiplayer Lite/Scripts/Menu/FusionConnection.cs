@@ -17,7 +17,7 @@ namespace AvocadoShark
         private NetworkRunner runner;
 
         [Header("Player")]
-        [SerializeField] GameObject playerPrefab;
+        [SerializeField] public GameObject playerPrefab;
 
         [Header("Name Entry")]
         public GameObject mainObject;
