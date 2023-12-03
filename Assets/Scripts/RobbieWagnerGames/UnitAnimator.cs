@@ -17,9 +17,14 @@ namespace RobbieWagnerGames
         WalkLeft = 6,
         WalkRight = 7,
 
-        CombatIdleLeft = 8,
-        CombatIdleRight = 9,
-        Talk = 10,
+        RunForward = 8,
+        RunBack = 9,
+        RunLeft = 10,
+        RunRight = 11,
+
+        CombatIdleLeft = 12,
+        CombatIdleRight = 13,
+        Talk = 14,
     }
 
     public class UnitAnimator : MonoBehaviour
