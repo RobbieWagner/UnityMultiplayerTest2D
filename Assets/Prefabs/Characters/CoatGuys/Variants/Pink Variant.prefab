@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -307168524, guid: 60ad24bf51289ff419c0c87ae7cf476c, type: 3}
+    - target: {fileID: 3422672828812715786, guid: 8862643520325f74598ae755403de3f4, type: 3}
+      propertyPath: NetworkGuid.RawGuidValue.Array.data[0]
+      value: 2594540233581954170
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422672828812715786, guid: 8862643520325f74598ae755403de3f4, type: 3}
+      propertyPath: NetworkGuid.RawGuidValue.Array.data[1]
+      value: -1591270431975836901
+      objectReference: {fileID: 0}
     - target: {fileID: 4445657326973424515, guid: 8862643520325f74598ae755403de3f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

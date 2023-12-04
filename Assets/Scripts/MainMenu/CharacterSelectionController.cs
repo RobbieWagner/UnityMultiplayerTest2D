@@ -5,29 +5,24 @@ using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
-public class CharacterSelection
-{
-    public AnimatorController animatorController;
-    public GameObject characterPrefab;
-}
-
 public class CharacterSelectionController : MonoBehaviour
 {
 
-    [SerializeField] private List<CharacterSelection> characterOptions;
+    [SerializeField] private List<AnimatorController> characterOptions;
     [SerializeField] private FusionConnection fusionConnection;
     [SerializeField] private Animator menuDisplayCharacter;
 
     [SerializeField] private Button selectNextButton;
     [SerializeField] private Button selectPreviousButton;
 
-    private int currentCharacterIndex;
-    private CharacterSelection currentSelectedCharacter;
+    [HideInInspector] public int currentCharacterIndex;
+    [HideInInspector] public AnimatorController currentSelectedCharacter;
 
     private void Awake()
     {
         currentCharacterIndex = 0;
+        currentSelectedCharacter = characterOptions[currentCharacterIndex];
+        SetCurrentCharacter(currentSelectedCharacter);
     }
 
     private void OnEnable()
@@ -58,9 +53,8 @@ public class CharacterSelectionController : MonoBehaviour
         SetCurrentCharacter(currentSelectedCharacter);
     }
 
-    private void SetCurrentCharacter(CharacterSelection character)
+    private void SetCurrentCharacter(AnimatorController character)
     {
-        menuDisplayCharacter.runtimeAnimatorController = character.animatorController;
-        fusionConnection.playerPrefab = character.characterPrefab;
+        menuDisplayCharacter.runtimeAnimatorController = character;
     }
 }

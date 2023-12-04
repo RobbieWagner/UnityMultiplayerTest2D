@@ -45,6 +45,8 @@ namespace AvocadoShark
         private List<SessionInfo> _sessionList = new List<SessionInfo>();
 
         [HideInInspector] public string _playerName = null;
+        
+        [SerializeField] private PlayerCharacterSetupController playerCharacterSetupController;
 
         private void Awake()
         {
@@ -238,16 +240,19 @@ namespace AvocadoShark
 
             if (runner.GetPlayerObject(runner.LocalPlayer) == null)
             {
+                NetworkObject playerObject;
                 if (!UseCustomLocation)
                 {
-                    NetworkObject playerObject = runner.Spawn(playerPrefab, new Vector3(UnityEngine.Random.Range(-7.6f, 14.2f), 0, UnityEngine.Random.Range(-31.48f, -41.22f)));
+                    playerObject = runner.Spawn(playerPrefab, new Vector3(UnityEngine.Random.Range(-7.6f, 14.2f), 0, UnityEngine.Random.Range(-31.48f, -41.22f)));
                     runner.SetPlayerObject(runner.LocalPlayer, playerObject);
                 }
                 else
                 {
-                    NetworkObject playerObject = runner.Spawn(playerPrefab, CustomLocation);
+                    playerObject = runner.Spawn(playerPrefab, CustomLocation);
                     runner.SetPlayerObject(runner.LocalPlayer, playerObject);
-                }
+                } 
+                
+                playerCharacterSetupController?.SetupCharacter(playerObject);
             }
         }
 

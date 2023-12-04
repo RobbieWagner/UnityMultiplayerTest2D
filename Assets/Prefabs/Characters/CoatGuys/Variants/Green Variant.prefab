@@ -48,6 +48,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4030839377110331126, guid: 506c7912793494a40be3e0cc6b4ec971, type: 3}
+      propertyPath: NetworkGuid.RawGuidValue.Array.data[0]
+      value: -2002881773296428401
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030839377110331126, guid: 506c7912793494a40be3e0cc6b4ec971, type: 3}
+      propertyPath: NetworkGuid.RawGuidValue.Array.data[1]
+      value: -6726102165784656870
+      objectReference: {fileID: 0}
     - target: {fileID: 4276923504128583793, guid: 506c7912793494a40be3e0cc6b4ec971, type: 3}
       propertyPath: m_Sprite
       value: 

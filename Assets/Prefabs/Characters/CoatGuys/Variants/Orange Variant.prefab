@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 324556204453071608, guid: 8fda8f8fa35534e41a846b75b715a8a2, type: 3}
+      propertyPath: NetworkGuid.RawGuidValue.Array.data[0]
+      value: -1998760457544002900
+      objectReference: {fileID: 0}
+    - target: {fileID: 324556204453071608, guid: 8fda8f8fa35534e41a846b75b715a8a2, type: 3}
+      propertyPath: NetworkGuid.RawGuidValue.Array.data[1]
+      value: 8170629429085555800
+      objectReference: {fileID: 0}
     - target: {fileID: 588786754599259263, guid: 8fda8f8fa35534e41a846b75b715a8a2, type: 3}
       propertyPath: m_Sprite
       value: 

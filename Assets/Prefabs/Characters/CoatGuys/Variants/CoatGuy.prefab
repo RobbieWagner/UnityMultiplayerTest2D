@@ -112,6 +112,14 @@ PrefabInstance:
       propertyPath: StateHashes.Array.data[24]
       value: -1929433126
       objectReference: {fileID: 0}
+    - target: {fileID: 7467612254075435935, guid: 05803d67efc6df64d8cd8ef8adcdcd06, type: 3}
+      propertyPath: NetworkGuid.RawGuidValue.Array.data[0]
+      value: -6561178256686287480
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467612254075435935, guid: 05803d67efc6df64d8cd8ef8adcdcd06, type: 3}
+      propertyPath: NetworkGuid.RawGuidValue.Array.data[1]
+      value: 7676964261372519928
+      objectReference: {fileID: 0}
     - target: {fileID: 7712570000158899480, guid: 05803d67efc6df64d8cd8ef8adcdcd06, type: 3}
       propertyPath: m_Sprite
       value: 
