@@ -258,7 +258,7 @@ namespace AvocadoShark
 
         public void OnSceneLoadStart(NetworkRunner runner)
         {
-
+            Debug.Log("Scene Load Start.");
         }
 
         public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason)

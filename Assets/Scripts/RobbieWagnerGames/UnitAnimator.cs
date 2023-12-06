@@ -35,6 +35,21 @@ namespace RobbieWagnerGames
         [SerializeField] private List<UnitAnimationState> states;
         private UnitAnimationState currentState;
 
+        private RuntimeAnimatorController selectedCharacterAnimator;
+        public RuntimeAnimatorController SelectedCharacterAnimator
+        {
+            get
+            { 
+                return selectedCharacterAnimator;
+            }
+            set
+            {
+                if(value == selectedCharacterAnimator) return;
+                selectedCharacterAnimator = value;
+                animator.runtimeAnimatorController = value;
+            }
+        }
+
         protected virtual void Awake()
         {
             OnAnimationStateChange += StartAnimation;

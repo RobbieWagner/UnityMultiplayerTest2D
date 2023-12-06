@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Fusion;
 using RobbieWagnerGames;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class TopDownCharacterMovement : MonoBehaviour
+public class TopDownCharacterMovement : NetworkBehaviour
 {
     [SerializeField] Rigidbody2D body;
     [SerializeField] UnitAnimator unitAnimator;
@@ -35,6 +36,8 @@ public class TopDownCharacterMovement : MonoBehaviour
         movementSpeed = defaultWalkSpeed;
         running = false;
         hasRecentlyMoved = false;
+
+        unitAnimator = GetComponent<UnitAnimator>();
 
         currentRunSpeed = defaultRunSpeed;
         currentWalkSpeed = defaultWalkSpeed;

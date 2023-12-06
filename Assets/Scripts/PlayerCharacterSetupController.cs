@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using AvocadoShark;
 using Fusion;
+using RobbieWagnerGames;
 using UnityEngine;
 
 public class PlayerCharacterSetupController : MonoBehaviour
@@ -14,11 +15,14 @@ public class PlayerCharacterSetupController : MonoBehaviour
     {
         animator = playerObject.GetComponent<Animator>();
         if(animator != null)
-            InitializeAnimator();
+            InitializeAnimator(playerObject);
     }
 
-    private void InitializeAnimator()
+    private void InitializeAnimator(NetworkObject playerObject)
     {
-        animator.runtimeAnimatorController = characterSelectionController.currentSelectedCharacter;
+        UnitAnimator unitAnimator = playerObject.GetComponent<UnitAnimator>();
+
+        unitAnimator.SelectedCharacterAnimator = characterSelectionController.currentSelectedCharacter.animator;
+        animator.runtimeAnimatorController = characterSelectionController.currentSelectedCharacter.animator;
     }
 }

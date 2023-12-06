@@ -1,28 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using AvocadoShark;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
+
+[System.Serializable]
+public class CharacterOption
+{
+    public RuntimeAnimatorController animator;
+    public Sprite characterVisual;
+}
 
 public class CharacterSelectionController : MonoBehaviour
 {
 
-    [SerializeField] private List<AnimatorController> characterOptions;
+    [SerializeField] private List<CharacterOption> characterOptions;
     [SerializeField] private FusionConnection fusionConnection;
-    [SerializeField] private Animator menuDisplayCharacter;
+    [SerializeField] private Image menuDisplayCharacter;
 
     [SerializeField] private Button selectNextButton;
     [SerializeField] private Button selectPreviousButton;
 
     [HideInInspector] public int currentCharacterIndex;
-    [HideInInspector] public AnimatorController currentSelectedCharacter;
+    [HideInInspector] public CharacterOption currentSelectedCharacter;
 
     private void Awake()
     {
         currentCharacterIndex = 0;
         currentSelectedCharacter = characterOptions[currentCharacterIndex];
-        SetCurrentCharacter(currentSelectedCharacter);
+        SetCurrentCharacter(currentSelectedCharacter.characterVisual);
     }
 
     private void OnEnable()
@@ -50,11 +56,11 @@ public class CharacterSelectionController : MonoBehaviour
         }
 
         currentSelectedCharacter = characterOptions[currentCharacterIndex];
-        SetCurrentCharacter(currentSelectedCharacter);
+        SetCurrentCharacter(currentSelectedCharacter.characterVisual);
     }
 
-    private void SetCurrentCharacter(AnimatorController character)
+    private void SetCurrentCharacter(Sprite character)
     {
-        menuDisplayCharacter.runtimeAnimatorController = character;
+        menuDisplayCharacter.sprite = character;
     }
 }
