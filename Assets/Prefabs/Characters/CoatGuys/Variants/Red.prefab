@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 1089963104892148781}
   - component: {fileID: 8583317252892055878}
   m_Layer: 0
-  m_Name: CoatGuy
+  m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -310,7 +310,7 @@ Animator:
   m_GameObject: {fileID: 3346470934055497694}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d71bcd0e02967e94d90cc3021bb72694, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8a3764cad9bb1e947bc8b5546c82ef82, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -476,7 +476,7 @@ MonoBehaviour:
     _value: 0
     _inverse: 0
     _hash: -814817977
-  StateHashes: 000000002b1a167c7940695587279289226375360fcefcf9155fc613c61a9f672dd9179aabc373b82fe0a55774c37e9447705ba3f4e5daaf70c60c407917a64d63869ca78f5a6c6a95cb56803c11b18699555639d07cc57dcaedff9731ec7771da2fff8c
+  StateHashes: 000000002b1a167c794069550fcefcf9155fc613c61a9f672dd9179a872792892263753631ec7771da2fff8cd07cc57dcaedff973c11b186995556398f5a6c6a95cb5680f4e5daaf70c60c407917a64d63869ca774c37e9447705ba3abc373b82fe0a557
   TriggerHashes: 00000000
 --- !u!114 &8583317252892055878
 MonoBehaviour:

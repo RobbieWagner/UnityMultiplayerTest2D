@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using AvocadoShark;
+using Fusion;
 using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
 public class CharacterOption
 {
+    public NetworkObject characterPrefab;
     public RuntimeAnimatorController animator;
     public Sprite characterVisual;
 }
@@ -56,6 +58,7 @@ public class CharacterSelectionController : MonoBehaviour
         }
 
         currentSelectedCharacter = characterOptions[currentCharacterIndex];
+        fusionConnection.playerPrefab = currentSelectedCharacter.characterPrefab.gameObject;
         SetCurrentCharacter(currentSelectedCharacter.characterVisual);
     }
 
