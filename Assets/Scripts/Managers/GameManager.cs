@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
 
     public HashSet<PlayerStats> playersInGame;
+    public int playerLimit = 8;
     public static GameManager Instance {get; private set;}
     
     private void Awake()

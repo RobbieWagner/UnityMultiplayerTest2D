@@ -13,9 +13,13 @@ public class PlayerCharacterSetupController : MonoBehaviour
 
     public void SetupCharacter(NetworkObject playerObject)
     {
+        PlayerStats playerStats = playerObject.GetComponent<PlayerStats>();
+        GameManager.Instance?.AddNewPlayer(playerStats);
+
         animator = playerObject.GetComponent<Animator>();
         if(animator != null)
             InitializeAnimator(playerObject);
+
     }
 
     private void InitializeAnimator(NetworkObject playerObject)
