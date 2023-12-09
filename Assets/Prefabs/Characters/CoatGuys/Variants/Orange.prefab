@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
+  playerStats: {fileID: 8583317252892055878}
   body: {fileID: 993002584294838699}
   unitAnimator: {fileID: 8794094736736000511}
   defaultWalkSpeed: 3

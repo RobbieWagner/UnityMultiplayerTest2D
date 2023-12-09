@@ -158,7 +158,7 @@ namespace AvocadoShark
                 string scenePath = SceneUtility.GetScenePathByBuildIndex(i);
                 string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
 
-                if (sceneName == "Game")
+                if (sceneName == "Lobby")
                 {
                     buildIndex = i;
                     break;

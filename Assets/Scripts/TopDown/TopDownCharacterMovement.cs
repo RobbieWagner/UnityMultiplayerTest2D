@@ -6,7 +6,7 @@ using RobbieWagnerGames;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class TopDownCharacterMovement : NetworkBehaviour
+public partial class TopDownCharacterMovement : NetworkBehaviour
 {
     [SerializeField] Rigidbody2D body;
     [SerializeField] UnitAnimator unitAnimator;
@@ -49,6 +49,8 @@ public class TopDownCharacterMovement : NetworkBehaviour
         playerInputActions.Movement.Move.canceled += OnStopMoving;
         playerInputActions.Movement.Run.performed += OnStartRun;
         playerInputActions.Movement.Run.canceled += OnStopRun;
+
+        playerInputActions.Movement.Interact.performed += OnInteract;
     }
 
     private void FixedUpdate() => body.velocity = new Vector2(movementVector.x * movementSpeed, movementVector.y * movementSpeed);
